@@ -1,21 +1,24 @@
-
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu lateral</title>
     <link rel="stylesheet" href="navegator.component.css">
+</head>
+<body>
+    <div class="area"></div>
+    <nav class="main-menu">
+        <ul>
+            <li>
+                <a [routerLink]="['/']" routerLinkActive="bg-blue-800">
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="nav-text">INICIO</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>
 
-  </head>
-  <body><div class="area"></div><nav class="main-menu">
-            <ul>
-                <li>
-                    <a [routerLink]="['/']" routerLinkActive="bg-blue-800" >
-                        <i class="fa fa-home fa-2x"></i>
-                        <span class="nav-text">
-                           INICIO
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-  </body>
-    </html>
-3
+
