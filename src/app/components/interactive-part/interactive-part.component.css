@@ -1,0 +1,46 @@
+section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.input-question {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-question:focus {
+  border-color: #007bff;
+}
+
+.button-send {
+  background: #007bff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.button-send:hover {
+  background: #0056b3;
+}
+
+.button-send img {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
