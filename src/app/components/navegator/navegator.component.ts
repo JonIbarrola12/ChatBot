@@ -1,9 +1,13 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-navegator',
-  imports: [],
-  templateUrl: './navegator.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'chatbot-navegator',
+  templateUrl: 'name.component.html'
 })
-export class NavegatorComponent { }
+
+export class NameComponent implements OnInit {
+  constructor() { }
+
+  ngOnInit() { }
+}
+
