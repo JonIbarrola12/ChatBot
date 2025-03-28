@@ -6,5 +6,6 @@ import { InteractivePartComponent } from "./interactive-part/interactive-part.co
   selector: 'chatbot-completed-chatbot',
   imports: [ConversationTextspaceComponent, InteractivePartComponent],
   templateUrl: './completed-chatbot.component.html',
+  styleUrl: './completed-chatbot.componen.css'
 })
 export class CompletedChatbotComponent { }
