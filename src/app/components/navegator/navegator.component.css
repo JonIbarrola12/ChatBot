@@ -11,7 +11,7 @@
     height: 100px;
     text-align: center;
     vertical-align: middle;
-    font-size: 200px; /* Aumentado el tamaño del ícono de la casa */
+    font-size: 100px; /* Aumentado el tamaño del ícono de la casa */
 }
 
 .main-menu:hover, nav.main-menu.expanded {
