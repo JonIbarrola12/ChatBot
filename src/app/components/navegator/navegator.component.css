@@ -15,7 +15,7 @@
 }
 
 .main-menu:hover, nav.main-menu.expanded {
-    width: 400px; /*ANCHO DE LA PAGINA TOCAR AQUI*/
+    width: 380px; /*ANCHO DE LA PAGINA TOCAR AQUI*/
     overflow: hidden;
 }
 
@@ -27,7 +27,7 @@
     bottom: 0;
     height: 100%;
     left: 0;
-    width: 400px; /* LO MISMO DEL ANCHO */
+    width: 380px; /* LO MISMO DEL ANCHO */
     overflow: hidden;
     -webkit-transition: none;
     transition: none;
