@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -8,8 +8,11 @@ export class ChatService {
   chatbotUrl='https://chatbot-normativa-laboral.azurewebsites.net/Chat/Enviar';
 
 
-  createPost(question: string):Observable<any> {
-     return this.http.post<any>(this.chatbotUrl, question)
-    };
+  sendMessage(question: string): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const body = { question }; // La API puede requerir un objeto JSON
+
+    return this.http.post<any>(this.chatbotUrl, body, { headers });
   }
+}
 
