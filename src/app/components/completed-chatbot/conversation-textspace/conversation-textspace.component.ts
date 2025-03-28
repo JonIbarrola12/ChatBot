@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ChatService } from '../../services/chat.service';
+import { ChatService } from '../../../services/chat.service';
 
 @Component({
   selector: 'chatbot-conversation-textspace',
@@ -9,10 +9,6 @@ import { ChatService } from '../../services/chat.service';
 })
 export class ConversationTextspaceComponent {
   chatbotService = inject(ChatService)
-
-  loadPost(question_made:string ){
-    this.chatbotService.createPost(question_made);
-  }
 
 
  }

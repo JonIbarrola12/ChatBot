@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { ConversationTextspaceComponent } from "../../components/conversation-textspace/conversation-textspace.component";
-import { InteractivePartComponent } from "../../components/interactive-part/interactive-part.component";
+import { CompletedChatbotComponent } from "../../components/completed-chatbot/completed-chatbot.component";
 
 @Component({
   selector: 'chatbot-main-page',
-  imports: [ConversationTextspaceComponent, InteractivePartComponent],
+  imports: [CompletedChatbotComponent],
   templateUrl: './main-page.component.html',
 })
 export class MainPageComponent { }
