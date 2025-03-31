@@ -1,16 +1,17 @@
 <div class="chat-container">
   <div class="chat-header">Asistente Virtual</div>
   <div class="chat-body" id="chatBody">
-      <div class="message bot">
-          <img src="/src/app/imagenes/LKS-NEXT-02.png" class="avatar" alt="">
-          <span>¡Hola! ¿En qué puedo ayudarte? 😊</span>
+    <div class="message bot">
+      <img src="src\assets\imagenes\LKS-NEXT-02.png" class="avatar" alt=""/>
+      <span>¡Hola! ¿En qué puedo ayudarte? 😊</span>
+    </div>
+    @for (item of chatbotService.arrayChat; track item) {
+      <div class="{{item.clase}}">
+        @if (item.img) {
+          <img src="src\app\imagenes\LKS-NEXT-02.png" class="avatar" alt="">
+        }
+        <span>{{item.texto}}</span>
       </div>
-      <div class="message user">
-          <span>Quiero información sobre Angular</span>
-      </div>
-      <div class="message bot">
-          <img src="/src/app/imagenes/LKS-NEXT-02.png" class="avatar" alt="">
-          <span>¡Claro! Angular es un framework de desarrollo web basado en TypeScript</span>
-      </div>
+    }
   </div>
 </div>

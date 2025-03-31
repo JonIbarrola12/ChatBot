@@ -9,8 +9,7 @@ import { InteractivePartComponent } from '../interactive-part/interactive-part.c
   styleUrl: './conversation-textspace.component.css',
 })
 export class ConversationTextspaceComponent {
-  chatbotService = inject(ChatService)
-  constructor(){}
+  chatbotService = inject(ChatService);
 
 
 
