@@ -24,7 +24,6 @@ export class InteractivePartComponent {
       },
   })
   this.userMessage=pregunta;
-  console.log(this.userMessage)
-
+  console.log(this.userMessage);
  }
 }
