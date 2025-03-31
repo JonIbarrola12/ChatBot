@@ -1,0 +1,135 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+
+.fa-2x {
+    font-size: 120px;
+}
+
+/* MENÚ LATERAL */
+.main-menu {
+    background: #212121;
+    border-right: 1px solid #e5e5e5;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    width: 280px;
+    overflow: hidden;
+    z-index: 1000;
+    transition: width 0.3s ease;
+}
+
+
+.main-menu:hover {
+    width: 300px;
+}
+
+
+.main-menu > ul {
+    margin: 7px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-menu li {
+    display: block;
+    width: 100%;
+}
+
+.main-menu li > a {
+    display: flex;
+    align-items: center;
+    color: #c6c5c5;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 15px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.main-menu .nav-icon {
+    width: 50px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.main-menu .nav-text {
+    display: inline-block;
+    margin-left: 15px;
+    color: white;
+}
+
+
+.main-menu li:hover > a,
+.main-menu li.active > a {
+    color: #fff;
+    background-color: #000;
+}
+
+.margen-icono {
+    margin-top: 10px;
+}
+
+.historial-text {
+    color: #c6c5c5;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.area {
+    float: left;
+    background: #e2e2e2;
+    width: 100%;
+    height: 100%;
+    margin-left: 280px;
+    transition: margin-left 0.3s ease;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 1024px) {
+    .main-menu {
+        width: 220px;
+    }
+    .main-menu:hover {
+        width: 240px;
+    }
+    .area {
+        margin-left: 220px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-menu {
+        width: 80px;
+    }
+    .main-menu:hover {
+        width: 240px;
+    }
+    .main-menu .nav-text {
+        display: none;
+    }
+    .main-menu:hover .nav-text {
+        display: inline-block;
+    }
+    .area {
+        margin-left: 80px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-menu {
+        width: 0;
+        transition: width 0.3s ease;
+    }
+    .main-menu.open {
+        width: 250px;
+    }
+    .area {
+        margin-left: 0;
+    }
+}

@@ -6,7 +6,7 @@ section {
   padding: 10px;
   border-radius: 8px;
   width: 100%;
-  width: 680px;
+  max-width: 680px; 
   margin-top: 15px;
 }
 
@@ -43,4 +43,19 @@ section {
   width: 20px;
   height: 20px;
   filter: invert(1);
+}
+
+@media (max-width: 768px) {
+  section {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .input-question {
+    width: 100%;
+  }
+
+  .button-send {
+    width: 100%;
+  }
 }
