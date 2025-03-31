@@ -1,6 +1,5 @@
 .chat-container {
   width: 100%;
-  max-width: 600px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -8,6 +7,7 @@
   flex-direction: column;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: auto;
+  height: auto;
 }
 
 
@@ -26,7 +26,6 @@
   flex: 1;
   padding: 15px;
   overflow-y: auto;
-  max-height: 400px;
   display: flex;
   flex-direction: column;
   gap: 10px;
