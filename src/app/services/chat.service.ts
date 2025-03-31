@@ -7,5 +7,10 @@ export class ChatService {
   private http = inject(HttpClient);
   private chatbotUrl = 'https://chatbot-normativa-laboral.azurewebsites.net/Chat/Enviar';
 
+  sendQuestion(question:string):Observable<any>{
+    const body = {pregunta : question}
+
+   return this.http.post(this.chatbotUrl,body)
+  }
 }
 
