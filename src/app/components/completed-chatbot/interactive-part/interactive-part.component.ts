@@ -1,6 +1,6 @@
-import { ChatService } from './../../../services/chat.service';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ChatService } from '../../../services/chat.service';
 
 @Component({
   selector: 'chatbot-interactive-part',
@@ -9,15 +9,15 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './interactive-part.component.css'
 })
 export class InteractivePartComponent {
-  chatService = inject(ChatService);
+   public userMessage:string='';
+   public userAnswer:string='';
 
-  public question:string='';
-  public answer:string='';
-
-  sendMesagge(){
-    this.chatService.sendQuestion(this.question).subscribe(
-
-    )
+   constructor(private chatService: ChatService){}
+  sendMessage(pregunta: string){
+    this.chatService.sendQuestion(pregunta).subscribe({
+    next: (response)=> this.userAnswer='Respuesta del Servidor: '+response
+     })
   }
+
 
  }

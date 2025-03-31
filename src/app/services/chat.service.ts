@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -6,6 +6,10 @@ import { Observable } from 'rxjs';
 export class ChatService {
   private http = inject(HttpClient);
   private chatbotUrl = 'https://chatbot-normativa-laboral.azurewebsites.net/Chat/Enviar';
+
+  constructor(){
+    
+  }
 
   sendQuestion(question:string):Observable<any>{
     const body = {pregunta : question}

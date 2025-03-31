@@ -11,4 +11,9 @@ import { ChatService } from '../../services/chat.service';
 })
 export class CompletedChatbotComponent {
   private chatService = inject(ChatService);
+  sendMesagge(){
+    this.chatService.sendQuestion('hola').subscribe((resp)=>{
+      console.log(resp);
+    })
+  }
  }
