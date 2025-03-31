@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu lateral</title>
+    <title>Menú Lateral</title>
     <link rel="stylesheet" href="navegator.component.css">
 </head>
 <body>
@@ -11,15 +11,17 @@
     <nav class="main-menu">
         <ul>
             <li>
-                <a [routerLink]="['/']" routerLinkActive="bg-blue-800">
-                    <i class="fa fa-home fa-2x"></i>
+                <a [routerLink]="['/']" routerLinkActive="active">
+                    <i class="fa fa-home nav-icon"></i>
                     <span class="nav-text">INICIO</span>
                 </a>
             </li>
         </ul>
         <hr class="margen-icono">
+        <div class="historial-text">Historial</div>
     </nav>
 </body>
 </html>
+
 
 
