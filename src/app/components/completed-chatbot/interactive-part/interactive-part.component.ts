@@ -16,6 +16,19 @@ export class InteractivePartComponent {
 
 
   sendMessage(pregunta: string){
+    if (pregunta==''){
+      this.chatService.arrayChat.push({
+        clase: 'message user',
+        texto: pregunta,
+        img:false
+      })
+      this.chatService.arrayChat.push({
+        clase: 'message bot',
+        texto: 'Pregunta algo que quieras saber',
+        img:true
+      })
+
+    }else{
     this.chatService.sendQuestion(pregunta).subscribe({
       next: (response) => {
         console.log('Respuesta de la API:', response);
@@ -35,6 +48,7 @@ export class InteractivePartComponent {
         console.log(this.userAnswer);
       },
   })
+  }
  }
 
 }
