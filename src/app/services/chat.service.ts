@@ -10,7 +10,7 @@ export class ChatService {
   sendQuestion(question:string):Observable<any>{
     const body = {pregunta : question}
 
-   return this.http.post(this.chatbotUrl,body)
+   return this.http.post(this.chatbotUrl,body);
   }
 }
 

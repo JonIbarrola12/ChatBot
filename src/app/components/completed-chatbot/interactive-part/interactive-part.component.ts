@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ChatService } from '../../../services/chat.service';
+import { ChatService } from './../../../services/chat.service';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,5 +9,15 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './interactive-part.component.css'
 })
 export class InteractivePartComponent {
+  chatService = inject(ChatService);
+
+  public question:string='';
+  public answer:string='';
+
+  sendMesagge(){
+    this.chatService.sendQuestion(this.question).subscribe(
+
+    )
+  }
 
  }
