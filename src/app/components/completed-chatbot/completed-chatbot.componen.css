@@ -3,9 +3,9 @@
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   width: 60%;
-  max-width: 700px;
+  max-width: 900px;
   position: fixed;
-  left: 50%;
+  left: 46%;
   top: 10%;
   transform: translateX(-29%);
   display: flex;
