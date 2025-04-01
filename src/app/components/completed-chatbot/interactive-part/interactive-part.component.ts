@@ -27,7 +27,6 @@ export class InteractivePartComponent {
         texto: 'Pregunta algo que quieras saber',
         img:true
       })
-
     }else{
     this.chatService.sendQuestion(pregunta).subscribe({
       next: (response) => {
