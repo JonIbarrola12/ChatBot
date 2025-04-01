@@ -3,11 +3,11 @@
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   width: 60%;
-  max-width: 900px;
+  max-width: 1400px;
   position: fixed;
   left: 46%;
   top: 10%;
-  transform: translateX(-29%);
+  transform: translateX(-34%);
   display: flex;
   flex-direction: column;
   padding: 20px;
