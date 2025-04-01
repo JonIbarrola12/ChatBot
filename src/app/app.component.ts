@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ChatbotNavegator } from './components/completed-chatbot/navegator/navegator.component';
+import { ChatbotNavegator } from './components/navegator/navegator.component';
 
 @Component({
   selector: 'app-root',

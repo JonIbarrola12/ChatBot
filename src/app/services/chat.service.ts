@@ -1,11 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-export interface ArrayChat{
-  clase: string,
-  texto: string,
-  img: boolean
-}
+import { ArrayChat } from '../interfaces/chatbot.interfaces';
 @Injectable({providedIn: 'root'})
 export class ChatService {
   private http = inject(HttpClient);
