@@ -3,4 +3,7 @@ export interface ArrayChat{
   texto: string,
   img: boolean
 }
-
+export interface Conversations{
+  id: number,
+  messages: ArrayChat[];
+}

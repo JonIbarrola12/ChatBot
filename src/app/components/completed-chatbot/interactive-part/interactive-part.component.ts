@@ -46,6 +46,6 @@ export class InteractivePartComponent {
       },
   })
   }
+  this.chatService.saveConversation();
  }
-
 }
