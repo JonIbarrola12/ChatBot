@@ -11,37 +11,54 @@ export class ChatService {
   public arrayRecord: string[]=[]
   //public conversations: any[]=[]
   public conversations: Conversations[]=[];
+  private currentConversationId: number | null = null;
 
-  sendQuestion(question:string):Observable<any>{
-    const body = {pregunta : question}
-
-   return this.http.post(this.chatbotUrl,body);
+  sendQuestion(question: string): Observable<any> {
+    const body = { pregunta: question };
+    return this.http.post(this.chatbotUrl, body);
   }
 
   saveConversation(): void {
-    if (this.arrayChat.length === 0) return;
+    let storedConversations = this.getConversations();
 
-    const storedConversations = this.getConversations();
-    const newConversation: Conversations = {
-      id: Date.now(), // ID único
-      messages: [...this.arrayChat],
-    };
+    if (this.currentConversationId === null) {
+      this.currentConversationId = Date.now();
+      storedConversations.push({
+        id: this.currentConversationId,
+        messages: [...this.arrayChat], // Guardamos una copia exacta
+        date: new Date().toISOString()
+      });
+    } else {
+      const existingConversationIndex = storedConversations.findIndex(convo => convo.id === this.currentConversationId);
+      if (existingConversationIndex !== -1) {
+        const uniqueMessages = new Set(this.arrayChat.map(msg => JSON.stringify(msg))); // Evita duplicados
+        storedConversations[existingConversationIndex].messages = Array.from(uniqueMessages).map(msg => JSON.parse(msg));
+      }
+    }
 
-    storedConversations.push(newConversation);
     localStorage.setItem('conversations', JSON.stringify(storedConversations));
-
-
     this.conversations = storedConversations;
   }
-
+  loadConversations(): void {
+    this.conversations = JSON.parse(localStorage.getItem('conversations') || '[]');
+  }
 
   getConversations(): Conversations[] {
     return JSON.parse(localStorage.getItem('conversations') || '[]');
   }
 
-  
-  loadConversations(): void {
-    this.conversations = this.getConversations();
+  startNewConversation(): void {
+    this.arrayChat = [];
+    this.currentConversationId = null;
+    this.saveConversation();
+  }
+  loadConversationById(id: number): void {
+    const storedConversations = this.getConversations();
+    const selectedConvo = storedConversations.find(c => c.id === id);
+    if (selectedConvo) {
+      this.arrayChat = [...selectedConvo.messages];
+      this.currentConversationId = selectedConvo.id;
+    }
   }
 }
 

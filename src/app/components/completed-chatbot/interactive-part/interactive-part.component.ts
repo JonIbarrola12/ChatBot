@@ -12,6 +12,11 @@ export class InteractivePartComponent {
   public userMessage:string='';
   public userAnswer:string='';
 
+  ngOnInit() {
+    this.chatService.startNewConversation();
+    this.chatService.loadConversations();
+  }
+
   constructor(private chatService: ChatService){
   }
 
@@ -48,4 +53,7 @@ export class InteractivePartComponent {
   }
   this.chatService.saveConversation();
  }
+ loadChat(id: number) {
+  this.chatService.loadConversationById(id);
+}
 }

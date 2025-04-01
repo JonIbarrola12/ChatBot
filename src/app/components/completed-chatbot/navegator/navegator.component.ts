@@ -11,7 +11,12 @@ import { ChatService } from '../../../services/chat.service';
 
 export class ChatbotNavegator{
 chatService= inject(ChatService)
-
+loadChat(id: number) {
+  const selectedConvo = this.chatService.getConversations().find(c => c.id === id);
+  if (selectedConvo) {
+    this.chatService.arrayChat = [...selectedConvo.messages]; // Cargar mensajes en el chat
+  }
+}
 
 
 }
