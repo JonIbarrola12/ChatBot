@@ -12,7 +12,8 @@ export class InteractivePartComponent {
   public userMessage:string='';
   public userAnswer:string='';
 
-  constructor(private chatService: ChatService){}
+  constructor(private chatService: ChatService){
+  }
 
   sendMessage(pregunta: string){
     if (pregunta==''){
