@@ -21,6 +21,11 @@
         </ul>
         <hr class="margen-icono">
         <div class="historial-text">Historial</div>
+        @for (record of chatService.arrayRecord; track record) {
+          <div class="historial-text">
+            <a href="">{{record}}</a>
+          </div>
+        }
     </nav>
 </body>
 </html>

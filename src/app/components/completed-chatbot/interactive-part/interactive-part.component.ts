@@ -14,7 +14,6 @@ export class InteractivePartComponent {
 
   constructor(private chatService: ChatService){}
 
-
   sendMessage(pregunta: string){
     if (pregunta==''){
       this.chatService.arrayChat.push({
@@ -30,21 +29,19 @@ export class InteractivePartComponent {
     }else{
     this.chatService.sendQuestion(pregunta).subscribe({
       next: (response) => {
-        console.log('Respuesta de la API:', response);
         this.userMessage= pregunta;
+        this.chatService.arrayRecord.push(pregunta);
         this.chatService.arrayChat.push({
           clase:'message user',
           texto: this.userMessage,
           img:false
         });
-        console.log(this.userMessage);
         this.userAnswer= response.answare;
         this.chatService.arrayChat.push({
           clase:'message bot',
           texto: this.userAnswer,
           img: true,
         });
-        console.log(this.userAnswer);
       },
   })
   }
