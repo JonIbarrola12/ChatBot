@@ -6,4 +6,5 @@ export interface ArrayChat{
 export interface Conversations{
   id: number,
   messages: ArrayChat[];
+  date: string
 }

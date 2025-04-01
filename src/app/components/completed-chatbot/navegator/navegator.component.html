@@ -21,9 +21,9 @@
         </ul>
         <hr class="margen-icono">
         <div class="historial-text"> <b>Historial</b> </div> <hr>
-        @for (record of chatService.arrayRecord; track record) {
+        @for (conv of chatService.conversations; track conv) {
           <div class="styles-historial">
-            <a href=""> ⦾ {{record}} <hr class="COLORHR"></a>
+            <a href=""> ⦾ {{record}} <hr></a>
           </div>
         }
     </nav>
