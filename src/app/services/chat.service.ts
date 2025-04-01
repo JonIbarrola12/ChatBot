@@ -12,6 +12,7 @@ export class ChatService {
   //public conversations: any[]=[]
   public conversations: Conversations[]=[];
   private currentConversationId: number | null = null;
+  public recordTitle:string=''
 
   sendQuestion(question: string): Observable<any> {
     const body = { pregunta: question };
