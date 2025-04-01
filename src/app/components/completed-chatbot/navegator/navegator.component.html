@@ -23,7 +23,7 @@
         <div class="historial-text"> <b>Historial</b> </div> <hr>
         @for (conv of chatService.conversations; track conv) {
           <div class="styles-historial">
-            <a href=""> ⦾ {{record}} <hr></a>
+            <a href="#"(click)="loadChat(conv.id)"> ⦾Conversación {{ conv.id }} <hr></a>
           </div>
         }
     </nav>
