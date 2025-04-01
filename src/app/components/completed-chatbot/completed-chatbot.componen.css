@@ -7,15 +7,16 @@
   position: fixed;
   left: 46%;
   top: 6%;
-  transform: translateX(-34%);
+  transform: translateX(-32%);
   display: flex;
   flex-direction: column;
   padding: 20px;
 }
 @media (max-width: 768px) {
   .caja {
-    max-width: 95%;
-    top: 5%;
+    max-width: 90%;
+    top:0%;
+
   }
 }
 
