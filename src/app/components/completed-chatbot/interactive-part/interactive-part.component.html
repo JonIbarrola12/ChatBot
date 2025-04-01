@@ -4,6 +4,7 @@
     name="question-textbox"
     class="input-question"
     #txtPregunta
+    placeholder="Pregunta aqui..."
     (keydown.enter)="sendMessage(txtPregunta.value)"
   />
   <button class="button-send" (click)="sendMessage(txtPregunta.value)">
