@@ -8,6 +8,7 @@ export class ChatService {
   private chatbotUrl = 'https://chatbot-normativa-laboral.azurewebsites.net/Chat/Enviar';
   public arrayChat: ArrayChat[] = [];
   public arrayRecord: string[]=[]
+  //public conversations: any[]=[]
   sendQuestion(question:string):Observable<any>{
     const body = {pregunta : question}
 
