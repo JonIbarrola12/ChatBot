@@ -13,7 +13,7 @@ section {
   flex: 1;
   padding: 10px;
   border: 2px solid #ccc;
-  border-radius: 100px; 
+  border-radius: 100px;
   font-size: 16px;
   outline: none;
   transition: border-color 0.3s;
@@ -35,7 +35,7 @@ section {
 }
 
 .button-send:hover {
-  background: #0056b3;
+  background: #0056b3 !important;
 }
 
 .button-send img {
