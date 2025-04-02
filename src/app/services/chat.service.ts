@@ -51,7 +51,7 @@
     startNewConversation(): void {
       this.arrayChat = [];
       this.currentConversationId = null;
-      //this.saveConversation();
+      this.saveConversation();
     }
     loadConversationById(id: number): void {
       const storedConversations = this.getConversations();
