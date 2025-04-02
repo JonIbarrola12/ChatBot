@@ -4,16 +4,16 @@ section {
   gap: 10px;
   background: #007bff;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 100px;
   max-width: 1100px;
-  margin-top: 15px;
+  margin-top: 12px;
 }
 
 .input-question {
   flex: 1;
   padding: 10px;
   border: 2px solid #ccc;
-  border-radius: 6px;
+  border-radius: 100px; 
   font-size: 16px;
   outline: none;
   transition: border-color 0.3s;
@@ -26,7 +26,7 @@ section {
 .button-send {
   background: #ffffff;
   border: none;
-  border-radius: 6px;
+  border-radius: 100px;
   padding: 8px;
   cursor: pointer;
   display: flex;
