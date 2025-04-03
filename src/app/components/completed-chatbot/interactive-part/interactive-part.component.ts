@@ -10,7 +10,7 @@ import { ChatService } from '../../../services/chat.service';
 })
 export class InteractivePartComponent {
   public userMessage: string = '';
-
+  
   constructor(private chatService: ChatService) {}
 
   sendMessage(pregunta: string) {
