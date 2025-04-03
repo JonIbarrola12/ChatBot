@@ -109,6 +109,23 @@
 .COLORHR{
   color:white
 }
+.new-chat-btn {
+  margin: 15px;
+  padding: 10px;
+  background-color: #f85900;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  width: 70%;
+  transition: background-color 0.3s ease;
+}
+
+.new-chat-btn:hover {
+  background-color: #333;
+}
 
 
 

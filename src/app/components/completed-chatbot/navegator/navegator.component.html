@@ -23,9 +23,10 @@
         <div class="historial-text"> <b>Historial</b> </div> <hr>
         @for (conv of chatService.conversations; track conv) {
           <div class="styles-historial">
-            <a href="#"(click)="loadChat(conv.id)"> ⦾Conversación {{ conv.id }} <hr></a>
+            <li (click)="loadConversation(conv.id)">{{ conv.title }}<hr></li>
           </div>
         }
+        <button class="new-chat-btn" (click)="startNewChat()">Nuevo Chat</button>
     </nav>
 </body>
 </html>
