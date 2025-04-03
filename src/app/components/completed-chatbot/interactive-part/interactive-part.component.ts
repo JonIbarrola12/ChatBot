@@ -10,7 +10,7 @@ import { ChatService } from '../../../services/chat.service';
 })
 export class InteractivePartComponent {
   public userMessage: string = '';
-  
+
   constructor(private chatService: ChatService) {}
 
   sendMessage(pregunta: string) {
@@ -32,11 +32,6 @@ export class InteractivePartComponent {
           const errorMessage = { clase: 'message bot', texto: 'Lo siento, no pude entender eso.', img: true };
           this.chatService.arrayChat.push(errorMessage);
         }
-        this.chatService.saveConversation();
-      },
-      error: (err) => {
-        const errorMessage = { clase: 'message bot', texto: 'Hubo un error al obtener la respuesta.', img: true };
-        this.chatService.arrayChat.push(errorMessage);
         this.chatService.saveConversation();
       }
     });
