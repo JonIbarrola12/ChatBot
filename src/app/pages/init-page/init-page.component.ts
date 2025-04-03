@@ -1,9 +1,13 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
+import { InitTextComponent } from "../../components/init-text/init-text.component";
+import { InitButtonComponent } from "../../components/init-button/init-button.component";
 
 @Component({
-  selector: 'app-init-page',
-  imports: [],
+  selector: 'chatbot-init-page',
+  imports: [InitTextComponent, InitButtonComponent],
   templateUrl: './init-page.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './init-page.component.css'
 })
-export class InitPageComponent { }
+export class InitPageComponent {
+
+ }

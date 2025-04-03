@@ -1,0 +1,25 @@
+.cont-button{
+  background-color: #212121;
+  width: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.init-button{
+  margin-bottom: 2.5%;
+  background-color: #f85900;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  width: 20%;
+  padding-top:10px;
+  padding-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+.init-button:hover{
+  background-color: #333;
+}
