@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-init-button',
+  selector: 'chatbot-init-button',
   imports: [],
   templateUrl: './init-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
