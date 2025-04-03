@@ -10,11 +10,4 @@ import { InteractivePartComponent } from '../interactive-part/interactive-part.c
 })
 export class ConversationTextspaceComponent {
   chatService = inject(ChatService);
-
-
-
-
-
-
-
  }

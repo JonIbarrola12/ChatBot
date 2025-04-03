@@ -23,7 +23,7 @@
         <div class="historial-text"> <b>Historial</b> </div> <hr>
         @for (conv of chatService.conversations; track conv) {
           <div class="styles-historial">
-            <li (click)="loadConversation(conv.id)">{{ conv.title }}<hr></li>
+            <a href="#" (click)="loadConversation(conv.id)">{{ conv.title }}<hr></a>
           </div>
         }
         <button class="new-chat-btn" (click)="startNewChat()">Nuevo Chat</button>

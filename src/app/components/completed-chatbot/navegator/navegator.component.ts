@@ -7,14 +7,13 @@ import { RouterLink,RouterLinkActive } from '@angular/router';
   templateUrl: 'navegator.component.html'
 })
 export class ChatbotNavegator {
-  chatService = inject(ChatService);
 
-  // Método para iniciar un nuevo chat
+  chatService = inject(ChatService);
+  
   startNewChat(): void {
-    this.chatService.startNewConversation();  // Llamar al servicio para comenzar un nuevo chat
+    this.chatService.startNewConversation();
   }
 
-  // Cargar conversación desde el historial
   loadConversation(convoId: number): void {
     this.chatService.loadConversationById(convoId);
   }

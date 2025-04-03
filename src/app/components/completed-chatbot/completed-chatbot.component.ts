@@ -10,7 +10,9 @@ import { ChatService } from '../../services/chat.service';
   styleUrl: './completed-chatbot.componen.css'
 })
 export class CompletedChatbotComponent {
+
   private chatService = inject(ChatService);
+  
   sendMesagge(){
     this.chatService.sendQuestion('hola').subscribe((resp)=>{
       console.log(resp);
