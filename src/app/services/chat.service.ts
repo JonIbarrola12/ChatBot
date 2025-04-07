@@ -77,7 +77,7 @@ export class ChatService {
     this.arrayChat = [];
     this.currentConversationId = null;
   }
-  // Llamada a la API externa
+  //Metodo que hace la llamada a la API externa
   getItems(): Observable<any> {
     return this.http.get(this.apiUrl);
   }

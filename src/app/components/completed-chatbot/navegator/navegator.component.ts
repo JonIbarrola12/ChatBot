@@ -13,10 +13,11 @@ export class ChatbotNavegator {
   startNewChat(): void {
     this.chatService.startNewConversation();
   }
-  //Este metodo llama al metodo loadConversationById del servivio ChatService
+  //Este metodo llama al metodo loadConversationById del servicio ChatService
   loadConversation(convoId: number): void {
     this.chatService.loadConversationById(convoId);
   }
+  //Este metodo llama al metodo cleanHistory del servicio chatService
   cleanHistory(){
     this.chatService.cleanHistory();
   }

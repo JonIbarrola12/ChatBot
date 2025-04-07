@@ -8,6 +8,4 @@ import { InitButtonComponent } from "../../components/init-button/init-button.co
   templateUrl: './init-page.component.html',
   styleUrl: './init-page.component.css'
 })
-export class InitPageComponent {
-
- }
+export class InitPageComponent { }

@@ -1,7 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { ConversationTextspaceComponent } from "./conversation-textspace/conversation-textspace.component";
 import { InteractivePartComponent } from './interactive-part/interactive-part.component';
-import { ChatService } from '../../services/chat.service';
 
 @Component({
   selector: 'chatbot-completed-chatbot',
@@ -10,5 +9,4 @@ import { ChatService } from '../../services/chat.service';
   styleUrl: './completed-chatbot.componen.css'
 })
 export class CompletedChatbotComponent {
-  private chatService = inject(ChatService);
  }
