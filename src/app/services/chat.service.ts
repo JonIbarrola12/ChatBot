@@ -5,8 +5,9 @@ import { ArrayChat, Conversations } from '../interfaces/chatbot.interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class ChatService {
-  private http = inject(HttpClient);
+  public http = inject(HttpClient);
   private chatbotUrl = 'https://chatbot-normativa-laboral.azurewebsites.net/Chat/Enviar';
+  private apiUrl = 'http://localhost:3000/api';
   public arrayChat: ArrayChat[] = [];
   public conversations: Conversations[] = [];
   private currentConversationId: number | null = null;
@@ -68,12 +69,17 @@ export class ChatService {
       this.arrayChat = [...selectedConvo.messages];
       this.currentConversationId = selectedConvo.id;
     }
+  //Este metodo borra el historial del chat
   }
   cleanHistory(): void {
     localStorage.removeItem('conversations');
     this.conversations = [];
     this.arrayChat = [];
     this.currentConversationId = null;
+  }
+  // Llamada a la API externa
+  getItems(): Observable<any> {
+    return this.http.get(this.apiUrl);
   }
 }
 
