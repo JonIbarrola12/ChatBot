@@ -69,5 +69,11 @@ export class ChatService {
       this.currentConversationId = selectedConvo.id;
     }
   }
+  cleanHistory(): void {
+    localStorage.removeItem('conversations');
+    this.conversations = [];
+    this.arrayChat = [];
+    this.currentConversationId = null;
+  }
 }
 

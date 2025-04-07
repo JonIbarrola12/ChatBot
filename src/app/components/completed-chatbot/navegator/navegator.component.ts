@@ -17,4 +17,7 @@ export class ChatbotNavegator {
   loadConversation(convoId: number): void {
     this.chatService.loadConversationById(convoId);
   }
+  cleanHistory(){
+    this.chatService.cleanHistory();
+  }
 }
