@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { ChatService } from '../../../services/chat.service';
-import { InteractivePartComponent } from '../interactive-part/interactive-part.component';
 
 @Component({
   selector: 'chatbot-conversation-textspace',

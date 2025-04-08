@@ -12,7 +12,9 @@ export class InteractivePartComponent {
   public userMessage: string = '';
 
   constructor(private chatService: ChatService) {}
-
+  
+  /*Metodo principal para agregar los mensajes al arrayChat mediante el metodo push. Tambien se suscribe a la señal de la api
+  para recoger la respuesta mandandole la pregunta*/
   sendMessage(pregunta: string) {
     if (!pregunta.trim()) {
       return;

@@ -6,8 +6,4 @@ import { RouterLink } from '@angular/router';
   templateUrl: './init-button.component.html',
   styleUrl: './init-button.component.css'
 })
-export class InitButtonComponent {
-  startChat(){
-
-  }
-}
+export class InitButtonComponent { }
