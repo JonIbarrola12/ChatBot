@@ -12,20 +12,17 @@ export class MainPageComponent {
   constructor(private chatService: ChatService) {}
 
   ngOnInit(): void {
-    this.chatService.http.get('http://localhost:3000/api/items').subscribe(
-      (res) => {
-        console.log(res);
+    this.chatService.http.get('http://localhost:3000/api/conversations').subscribe({
+      next: (res) => {
+        console.log('Datos obtenidos:', res);  // Verifica el contenido de la respuesta aquí
       },
-      (error) => {
-        console.error('Error al obtener los items:', error);
-        if (error.status === 404) {
-          console.error('No se encontró la API');
-        } else if (error.status === 500) {
-          console.error('Error interno en el servidor');
-        } else {
-          console.error('Otro tipo de error', error);
-        }
+      error: (error) => {
+        console.error('Error al obtener las conversaciones:', error);
+      },
+      complete: () => {
+        console.log('Petición completada');
       }
-    );
+    });
   }
 }
+
