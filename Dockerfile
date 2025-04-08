@@ -7,7 +7,7 @@ COPY . /app
 RUN npm install -g @angular/cli
 RUN npm install
 
-# Expone el nuevo puerto
+# Expone el nuevo puertow
 EXPOSE 4300
 
 # Sirve la aplicación en el puerto 4300
