@@ -108,6 +108,7 @@ export class ChatService {
     });
   }
 
+
   // Enviar pregunta al chatbot
   sendQuestion(question: string): Observable<any> {
     const body = { pregunta: question };
@@ -122,12 +123,31 @@ export class ChatService {
       date: new Date().toISOString(),
     };
 
-    return this.http.post<Conversations>(`${this.apiUrl}/conversations`, conversationData).pipe(
-      tap((newConversation: Conversations) => {
-        // Asegurarse de que el tipo sea Conversations
-        this.conversations.push(newConversation);
-      })
-    );
+    if (this.currentConversationId !== null) {
+      // ✅ Actualiza conversación existente
+      return this.http.put<Conversations>(
+        `${this.apiUrl}/conversations/${this.currentConversationId}`,
+        conversationData
+      ).pipe(
+        tap((updatedConversation: Conversations) => {
+          const index = this.conversations.findIndex(c => c.id === this.currentConversationId);
+          if (index !== -1) {
+            this.conversations[index] = updatedConversation;
+          }
+        })
+      );
+    } else {
+      // ✅ Crea nueva conversación
+      return this.http.post<Conversations>(
+        `${this.apiUrl}/conversations`,
+        conversationData
+      ).pipe(
+        tap((newConversation: Conversations) => {
+          this.conversations.push(newConversation);
+          this.currentConversationId = newConversation.id;
+        })
+      );
+    }
   }
 
 // Método para cargar las conversaciones desde la base de datos
@@ -137,6 +157,13 @@ loadConversationsFromDatabase(): Observable<Conversations[]> {
 
   // Comienza una nueva conversación
   startNewConversation(): void {
+    if (this.arrayChat.length > 0) {
+      this.saveConversationToDatabase().subscribe({
+        next: () => console.log('Conversación anterior guardada'),
+        error: (err) => console.error('Error al guardar conversación anterior:', err)
+      });
+    }
+
     this.arrayChat = [];
     this.currentConversationId = null;
   }

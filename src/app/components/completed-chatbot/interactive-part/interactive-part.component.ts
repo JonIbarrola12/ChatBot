@@ -75,7 +75,7 @@ export class InteractivePartComponent {
           const errorMessage = { clase: 'message bot', texto: 'Lo siento, no pude entender eso.', img: true };
           this.chatService.arrayChat.push(errorMessage);
         }
-        this.chatService.saveConversationToDatabase();
+        this.chatService.saveConversationToDatabase().subscribe();
       }
     });
   }

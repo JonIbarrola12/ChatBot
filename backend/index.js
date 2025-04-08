@@ -29,31 +29,40 @@ app.get('/api/conversations', async (req, res) => {
 // Ruta para crear una nueva conversación
 app.post('/api/conversations', async (req, res) => {
   const { title, messages, date } = req.body;
+
+  console.log('Recibido en el backend:', req.body);
+
   try {
     const result = await pool.query(
       'INSERT INTO conversations (title, messages, date) VALUES ($1, $2, $3) RETURNING *',
-      [title, JSON.stringify(messages), date]
+      [title, messages, date]
     );
     res.json(result.rows[0]);
-  } catch (err) {
-    console.error('Error al guardar la conversación:', err.message);
-    res.status(500).send('Error en la base de datos');
+  } catch (error) {
+    console.error('Error al guardar la conversación:', error.message);
+    res.status(500).json({ error: 'Error al guardar en la base de datos' });
   }
 });
 
 // Ruta para actualizar una conversación existente
 app.put('/api/conversations/:id', async (req, res) => {
-  const { id } = req.params;
+  const id = parseInt(req.params.id);
   const { title, messages, date } = req.body;
+
   try {
     const result = await pool.query(
       'UPDATE conversations SET title = $1, messages = $2, date = $3 WHERE id = $4 RETURNING *',
       [title, JSON.stringify(messages), date, id]
     );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: 'Conversación no encontrada' });
+    }
+
     res.json(result.rows[0]);
   } catch (err) {
-    console.error('Error al actualizar la conversación:', err.message);
-    res.status(500).send('Error en la base de datos');
+    console.error('Error al actualizar conversación:', err);
+    res.status(500).json({ error: 'Error al actualizar conversación' });
   }
 });
 
