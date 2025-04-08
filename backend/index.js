@@ -30,17 +30,16 @@ app.get('/api/conversations', async (req, res) => {
 app.post('/api/conversations', async (req, res) => {
   const { title, messages, date } = req.body;
 
-  console.log('Recibido en el backend:', req.body);
-
   try {
     const result = await pool.query(
       'INSERT INTO conversations (title, messages, date) VALUES ($1, $2, $3) RETURNING *',
-      [title, messages, date]
+      [title, JSON.stringify(messages), date]  // 👈 SERIALIZAMOS messages aquí
     );
-    res.json(result.rows[0]);
+
+    res.status(201).json(result.rows[0]);
   } catch (error) {
-    console.error('Error al guardar la conversación:', error.message);
-    res.status(500).json({ error: 'Error al guardar en la base de datos' });
+    console.error('Error al guardar la conversación:', error);
+    res.status(500).json({ error: 'Error al guardar la conversación' });
   }
 });
 
@@ -70,10 +69,10 @@ app.put('/api/conversations/:id', async (req, res) => {
 app.delete('/api/conversations', async (req, res) => {
   try {
     await pool.query('DELETE FROM conversations');
-    res.send('Historial de conversaciones borrado');
+    res.json({ message: 'Todas las conversaciones han sido eliminadas' });
   } catch (err) {
-    console.error('Error al borrar las conversaciones:', err.message);
-    res.status(500).send('Error en la base de datos');
+    console.error('Error al eliminar conversaciones:', err);
+    res.status(500).json({ error: 'Error al eliminar conversaciones' });
   }
 });
 

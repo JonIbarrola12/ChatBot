@@ -184,6 +184,7 @@ loadConversationsFromDatabase(): Observable<Conversations[]> {
         this.conversations = [];
         this.arrayChat = [];
         this.currentConversationId = null;
+        this.startNewConversation(); // <-- opcional
         console.log('Historial de conversaciones limpiado.');
       },
       (error) => {
