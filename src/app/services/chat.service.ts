@@ -91,7 +91,7 @@ import { ArrayChat, Conversations } from '../interfaces/chatbot.interfaces';
 export class ChatService {
   public http = inject(HttpClient);
   private chatbotUrl = 'https://chatbot-normativa-laboral.azurewebsites.net/Chat/Enviar';
-  private apiUrl = 'http://localhost:3000/api';  // Cambia esta URL por la de tu backend
+  private apiUrl = 'http://localhost:3000/api';
 
   public arrayChat: ArrayChat[] = [];
   public conversations: Conversations[] = [];
@@ -153,7 +153,7 @@ loadConversationsFromDatabase(): Observable<Conversations[]> {
   return this.http.get<Conversations[]>(`${this.apiUrl}/conversations`);
 }
 
-  // Comienza una nueva conversación
+  // Método que comienza una nueva conversación
   startNewConversation(): void {
     if (this.arrayChat.length > 0) {
       this.saveConversationToDatabase().subscribe({
@@ -166,7 +166,7 @@ loadConversationsFromDatabase(): Observable<Conversations[]> {
     this.currentConversationId = null;
   }
 
-  // Cargar una conversación específica por ID
+  // Método que carga una conversación específica por ID
   loadConversationById(id: number): void {
     const selectedConvo = this.conversations.find(c => c.id === id);
     if (selectedConvo) {
@@ -175,14 +175,14 @@ loadConversationsFromDatabase(): Observable<Conversations[]> {
     }
   }
 
-  // Limpiar el historial de conversaciones
+  // Métodoque limpia el historial de conversaciones
   cleanHistory(): void {
     this.http.delete(`${this.apiUrl}/conversations`).subscribe(
       () => {
         this.conversations = [];
         this.arrayChat = [];
         this.currentConversationId = null;
-        this.startNewConversation(); // <-- opcional
+        this.startNewConversation();
         console.log('Historial de conversaciones limpiado.');
       },
       (error) => {
