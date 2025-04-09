@@ -124,7 +124,6 @@ export class ChatService {
     };
 
     if (this.currentConversationId !== null) {
-      // ✅ Actualiza conversación existente
       return this.http.put<Conversations>(
         `${this.apiUrl}/conversations/${this.currentConversationId}`,
         conversationData
@@ -137,7 +136,6 @@ export class ChatService {
         })
       );
     } else {
-      // ✅ Crea nueva conversación
       return this.http.post<Conversations>(
         `${this.apiUrl}/conversations`,
         conversationData
@@ -152,7 +150,7 @@ export class ChatService {
 
 // Método para cargar las conversaciones desde la base de datos
 loadConversationsFromDatabase(): Observable<Conversations[]> {
-  return this.http.get<Conversations[]>(`${this.apiUrl}/conversations`);  // Asegúrate de que la URL sea correcta
+  return this.http.get<Conversations[]>(`${this.apiUrl}/conversations`);
 }
 
   // Comienza una nueva conversación

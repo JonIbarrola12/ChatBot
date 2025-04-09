@@ -8,5 +8,4 @@ import { InteractivePartComponent } from './interactive-part/interactive-part.co
   templateUrl: './completed-chatbot.component.html',
   styleUrl: './completed-chatbot.componen.css'
 })
-export class CompletedChatbotComponent {
- }
+export class CompletedChatbotComponent { }

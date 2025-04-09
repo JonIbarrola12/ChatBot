@@ -1,19 +1,19 @@
 import express from 'express';
 import cors from 'cors';
-import pkg from 'pg';  // Importación por defecto
-const { Pool } = pkg;  // Extrae 'Pool' del objeto importado
+import pkg from 'pg';
+const { Pool } = pkg;
 
 const app = express();
 app.use(cors());
-app.use(express.json());  // Necesario para parsear los datos JSON del cuerpo
+app.use(express.json());
 
 // Configuración de la conexión a la base de datos PostgreSQL
 const pool = new Pool({
   host: 'localhost',
   port: 5432,
-  user: 'postgres',  // Cambia por tu usuario
-  password: 'password', // Cambia por tu contraseña
-  database: 'mydb',  // Cambia por tu base de datos
+  user: 'postgres',
+  password: 'password',
+  database: 'mydb',
 });
 // Ruta para obtener las conversaciones
 app.get('/api/conversations', async (req, res) => {
@@ -33,7 +33,7 @@ app.post('/api/conversations', async (req, res) => {
   try {
     const result = await pool.query(
       'INSERT INTO conversations (title, messages, date) VALUES ($1, $2, $3) RETURNING *',
-      [title, JSON.stringify(messages), date]  // 👈 SERIALIZAMOS messages aquí
+      [title, JSON.stringify(messages), date] 
     );
 
     res.status(201).json(result.rows[0]);
