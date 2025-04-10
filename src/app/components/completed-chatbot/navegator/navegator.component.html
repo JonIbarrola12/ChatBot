@@ -11,22 +11,24 @@
     <nav class="main-menu">
         <ul>
             <li>
+              <!-- Link que redirige a la pagina principal -->
                 <a [routerLink]="['/']" routerLinkActive="active">
                     <i class="fa fa-home nav-icon"></i>
                     <span class="nav-text">INICIO</span>
                 </a>
             </li>
-            <h3> </h3>
-
         </ul>
         <hr class="margen-icono">
         <div class="historial-text"> <b>Historial</b> </div> <hr>
+        <!-- Bucle que crea accesos a las conversaciones cada vez que se añade una nueva conversacion al array conversaciones -->
         @for (conv of chatService.conversations; track conv) {
           <div class="styles-historial">
             <a (click)="loadConversation(conv.id)">{{ conv.title }}<hr></a>
           </div>
         }
+        <!-- Botón que llama al método startNewChat cuando se hace click -->
         <button class="new-chat-btn" (click)="startNewChat()">Nuevo Chat</button>
+        <!-- Botón que llama al método cleanHistory cuando se hace click -->
         <button class="new-chat-btn" (click)="cleanHistory()">Limpiar Historial</button>
     </nav>
 </body>

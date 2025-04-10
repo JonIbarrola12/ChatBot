@@ -10,19 +10,5 @@ import { ChatService } from '../../services/chat.service';
 })
 export class MainPageComponent {
   constructor(private chatService: ChatService) {}
-
-  // ngOnInit(): void {
-  //   this.chatService.http.get('http://localhost:3000/api/conversations').subscribe({
-  //     next: (res) => {
-  //       console.log('Datos obtenidos:', res);
-  //     },
-  //     error: (error) => {
-  //       console.error('Error al obtener las conversaciones:', error);
-  //     },
-  //     complete: () => {
-  //       console.log('Petición completada');
-  //     }
-  //   });
-  // }
 }
 

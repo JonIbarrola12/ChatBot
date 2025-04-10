@@ -1,4 +1,5 @@
 <section>
+  <!-- Input en el que escribimos la pregunta. Si se pulsa el enter enviara el texto que tenga como pregunta al metodo sendMessage -->
   <input
     type="text"
     name="question-textbox"
@@ -7,6 +8,7 @@
     placeholder="Pregunta aqui..."
     (keydown.enter)="sendMessage(txtPregunta.value)"
   />
+  <!-- Botón que manda lo que este escrito en input al método sendMessage -->
   <button class="button-send" (click)="sendMessage(txtPregunta.value)">
     <img src="https://cdn-icons-png.flaticon.com/512/1033/1033956.png" alt="send-icon-image"/>
   </button>

@@ -6,8 +6,10 @@
               <img src="https://www.lksnext.com/wp-content/uploads/2020/04/lks-logo-positivo.png" class="avatar" alt=""/>
               <span>¡Hola! ¿En qué puedo ayudarte? 😊</span>
           </div>
+          <!-- Bucle para mostrar los mensajes de una conversacion en pantalla -->
           @for (item of chatService.arrayChat; track item) {
               <div class="{{item.clase}}">
+                <!-- Condición para validar si se mostrara el logo de LKS en el mensaje o no -->
                   @if (item.img) {
                       <img src="https://www.lksnext.com/wp-content/uploads/2020/04/lks-logo-positivo.png" class="avatar" alt="">
                   }

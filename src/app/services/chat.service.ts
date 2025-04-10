@@ -89,7 +89,7 @@ import { ArrayChat, Conversations } from '../interfaces/chatbot.interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class ChatService {
-  public http = inject(HttpClient);
+  private http = inject(HttpClient);
   private chatbotUrl = 'https://chatbot-normativa-laboral.azurewebsites.net/Chat/Enviar';
   private apiUrl = 'http://localhost:3000/api';
 
@@ -97,8 +97,11 @@ export class ChatService {
   public conversations: Conversations[] = [];
   private currentConversationId: number | null = null;
 
+  //Se ejecuta inmediatamente cuando se crea una instancia de la clase
   constructor() {
+    //Llamada al backend
     this.loadConversationsFromDatabase().subscribe({
+      //Recoge las conversaciones de la base de datos y las inserta en el array de conversations
       next: (conversations) => {
         this.conversations = conversations;
       },
@@ -107,7 +110,6 @@ export class ChatService {
       }
     });
   }
-
 
   // Enviar pregunta al chatbot
   sendQuestion(question: string): Observable<any> {
@@ -122,8 +124,9 @@ export class ChatService {
       messages: this.arrayChat,
       date: new Date().toISOString(),
     };
-
+    //Esta condición sirve para ver si la conversación fue guardada antes o no
     if (this.currentConversationId !== null) {
+      //Esto actualiza una conversación existente mediante put
       return this.http.put<Conversations>(
         `${this.apiUrl}/conversations/${this.currentConversationId}`,
         conversationData
@@ -136,6 +139,7 @@ export class ChatService {
         })
       );
     } else {
+      //Este crea una conversación mediante un post
       return this.http.post<Conversations>(
         `${this.apiUrl}/conversations`,
         conversationData
@@ -148,10 +152,10 @@ export class ChatService {
     }
   }
 
-// Método para cargar las conversaciones desde la base de datos
-loadConversationsFromDatabase(): Observable<Conversations[]> {
-  return this.http.get<Conversations[]>(`${this.apiUrl}/conversations`);
-}
+  // Método para cargar las conversaciones desde la base de datos
+  loadConversationsFromDatabase(): Observable<Conversations[]> {
+    return this.http.get<Conversations[]>(`${this.apiUrl}/conversations`);
+  }
 
   // Método que comienza una nueva conversación
   startNewConversation(): void {
@@ -161,7 +165,6 @@ loadConversationsFromDatabase(): Observable<Conversations[]> {
         error: (err) => console.error('Error al guardar conversación anterior:', err)
       });
     }
-
     this.arrayChat = [];
     this.currentConversationId = null;
   }
@@ -175,8 +178,9 @@ loadConversationsFromDatabase(): Observable<Conversations[]> {
     }
   }
 
-  // Métodoque limpia el historial de conversaciones
+  // Método que limpia el historial de conversaciones
   cleanHistory(): void {
+    //Utiliza delete para eliminar las conversaciones de la base de datos
     this.http.delete(`${this.apiUrl}/conversations`).subscribe(
       () => {
         this.conversations = [];
@@ -189,11 +193,6 @@ loadConversationsFromDatabase(): Observable<Conversations[]> {
         console.error('Error al limpiar el historial de conversaciones:', error);
       }
     );
-  }
-
-  // Método que obtiene los items (aquí puedes manejar cualquier otro dato que quieras)
-  getItems(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/items`);
   }
 }
 
