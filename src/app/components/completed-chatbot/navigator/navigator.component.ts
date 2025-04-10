@@ -4,7 +4,8 @@ import { RouterLink,RouterLinkActive } from '@angular/router';
 @Component({
   imports:[RouterLink,RouterLinkActive],
   selector: 'chatbot-navegator',
-  templateUrl: 'navegator.component.html'
+  templateUrl: 'navigator.component.html',
+  styleUrl: 'navigator.component.css'
 })
 export class ChatbotNavegator {
 

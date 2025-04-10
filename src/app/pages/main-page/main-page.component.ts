@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CompletedChatbotComponent } from "../../components/completed-chatbot/completed-chatbot.component";
-import { ChatbotNavegator } from "../../components/completed-chatbot/navegator/navegator.component";
+import { ChatbotNavegator } from "../../components/completed-chatbot/navigator/navigator.component";
 import { ChatService } from '../../services/chat.service';
 
 @Component({
