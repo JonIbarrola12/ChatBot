@@ -105,6 +105,7 @@ export class ChatService {
       next: (conversations) => {
         this.conversations = conversations;
       },
+      //En caso de error mostraria el siguiente mensaje
       error: (error) => {
         console.error('Error al cargar las conversaciones:', error);
       }
